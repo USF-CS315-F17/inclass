@@ -4,6 +4,7 @@
 #include <string.h>
 
 #define MAX_INPUT_LEN 64
+#define MAX_BIT_WIDTH 32
 
 /* The nt_info struct helps keep track of the conversion process and
    supports a normalize representation.
@@ -20,7 +21,7 @@ struct nt_info {
 void nt_info_init(struct nt_info *nti)
 {
     nti->input[0] = '\0';
-    nti->width = 32;
+    nti->width = MAX_BIT_WIDTH;
     nti->r0 = 0;
     nti->r1 = 0;
     nti->value = 0;
@@ -84,10 +85,10 @@ void validate_binary(struct nt_info *nti)
 
     /* The input must ahave at least one binary digit. E.g., 0b1. */
     /* Also, the number of binary digits cannot exceed the width. */
-    if (len < 3 || len > nti->width + 2) {
+    if (len < 3 || len > MAX_BIT_WIDTH + 2) {
         valid = false;
     } else {
-        for (i = 0; i < nti->width; i++) {
+        for (i = 0; i < MAX_BIT_WIDTH; i++) {
             c = nti->input[i + 2];
             /* If at end of input, then break. */
             if (c == '\0') {
