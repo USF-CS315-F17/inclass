@@ -51,7 +51,7 @@ void print_usage(void)
 }
 
 /* Parse the command line arguments. */
-/* NOTE: this will need to be modified to support -b and -r */
+/* NOTE: This will need to be modified to support -b and -r. */
 void parse_args(int argc, char **argv, struct nt_info *nti)
 {
     if (argc < 2) {
@@ -60,7 +60,7 @@ void parse_args(int argc, char **argv, struct nt_info *nti)
         exit(-1);
     }
 
-    /* Assume the input value is argv[1] */
+    /* Assume the input value is argv[1]. */
     strcpy(nti->input, argv[1]);
     
     return;
@@ -72,7 +72,7 @@ bool is_binary(char *s)
     return (s[0] == '0' && s[1] == 'b');
 }
 
-/* Validate a binary string value */
+/* Validate a binary string value. */
 void validate_binary(struct nt_info *nti)
 {
     int i;
@@ -110,7 +110,7 @@ void validate_binary(struct nt_info *nti)
     return;
 }
 
-/* Convert a valid binary string into an unsigned int value */
+/* Convert a valid binary string into an unsigned int value. */
 void normalize_binary(struct nt_info *nti)
 {
     unsigned int v = 0;
@@ -132,13 +132,14 @@ void normalize_binary(struct nt_info *nti)
             b = 1;
         }
 
-        /* Use logical or to place b in the least significant position of v */
+        /* Use logical or to place b in the least significant position of v. */
         v = v | b;
     }
 
     nti->value = v;
 }
 
+/* Convert all valid input representations to the normalized form. */
 void normalize_input(struct nt_info *nti)
 {
 
