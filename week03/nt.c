@@ -158,7 +158,7 @@ void print_binary_value_c_literal(struct nt_info *nti) {
     int b;
 
     printf("0b");
-    for (i = nti->width; i >= 0; i--) {
+    for (i = (nti->width - 1); i >= 0; i--) {
         b = (nti->value >> i) & 0b1;
         printf("%d", b);
     }
