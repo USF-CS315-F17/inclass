@@ -1,4 +1,4 @@
-/* add_a.s - standalone assembly code to add two numbers */
+/* add_a.s - assembly code function to add two numbers */
 
 .global add_a
 
