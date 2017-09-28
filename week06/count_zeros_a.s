@@ -1,6 +1,7 @@
 .global count_zeros_a
 .func count_zeros_a
 
+/* int count_zeros_a(int *array, int len); */
 count_zeros_a:
     mov r2, #0
     mov r3, #0
