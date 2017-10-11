@@ -1,4 +1,4 @@
-PROGS = rec_sum_test signed.s
+PROGS = rec_sum_test signed.s negvalues.o
 OBJS = 
 
 CFLAGS = -g
@@ -11,7 +11,7 @@ rec_sum_test: rec_sum_test.c rec_sum.c rec_sum.s
 signed.s : signed.c
 	gcc -S -o signed.s signed.c
 
-negvalues : negvalues.s
+negvalues.o : negvalues.s
 	as -o negvalues.o negvalues.s
 	objdump -S negvalues.o
 
