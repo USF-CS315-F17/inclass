@@ -43,7 +43,8 @@ struct arm_state *arm_state_new(unsigned int stack_size, unsigned int *func,
     }
 
     as->regs[PC] = (unsigned int) func;
-
+    as->regs[SP] = (unsigned int) as->stack + as->stack_size;
+    
     as->regs[0] = arg0;
     as->regs[1] = arg1;
     as->regs[2] = arg2;
